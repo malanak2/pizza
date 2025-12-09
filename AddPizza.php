@@ -20,3 +20,6 @@ foreach ($topdata as $top) {
 $pizza->toppings = $topping;
 $_SESSION["cart"][] = $pizza;
 echo "Pizza added succesfully!";
+?>
+
+<a href="/">Back to main page</a>

@@ -1,8 +1,21 @@
 <?php
 include 'Enums.php';
 ?>
-<?php session_start(); ?>
+<?php session_start();
+// Read flash messages set by order.php / other pages
+$order_success = $_SESSION['order_success'] ?? null;
+$order_errors = $_SESSION['order_errors'] ?? null;
+$order_old = $_SESSION['order_old'] ?? null;
 
+// If there are validation errors, show them on the Cart page per spec
+if (!empty($order_errors)) {
+header('Location: Cart.php');
+exit;
+}
+
+// Clear ephemeral session flash values so they don't persist
+unset($_SESSION['order_success'], $_SESSION['order_errors'], $_SESSION['order_old']);
+?>
 
 
 <!DOCTYPE html>
@@ -95,7 +108,11 @@ include 'Enums.php';
     </head>
     <body>
         <a href="Cart.php">Košík </a>
-    <div id="pizzaBuilder">
+        <?php if ($order_success): ?>
+            <div class="flash-success"><?= htmlspecialchars($order_success) ?></div>
+        <?php endif; ?>
+
+        <div id="pizzaBuilder">
         <form action="AddPizza.php" method="POST">
             <h2>Pizza</h2>
             <label for="base">Base</label><select name="base" id="base">

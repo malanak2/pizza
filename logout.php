@@ -4,8 +4,6 @@ include 'Enums.php';
 <?php session_start(); ?>
 <?php
 
-if ($_GET['logout']) {
-    session_start();
     //remove PHPSESSID from browser
     if (isset($_COOKIE[session_name()]))
         setcookie(session_name(), "", time() - 3600, "/");
@@ -13,7 +11,7 @@ if ($_GET['logout']) {
     $_SESSION = array();
     //clear session from disk
     echo session_destroy() ? "Successfully Logged Out" : "An error Occurred";
-    exit;
-}
+?>
 
+<a href="/">Back to main page</a>
 
