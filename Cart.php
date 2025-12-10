@@ -127,7 +127,7 @@ unset($_SESSION['order_errors'], $_SESSION['order_old'], $_SESSION['order_succes
 <p>Total prize is $4000000000.</p>
 <p id="output"></p>
 <h3>Delivery & Contact</h3>
-<form method="POST" action="order.php" novalidate>
+<form method="POST" action="Order.php" novalidate>
     <div class="form-row">
         <label for="customer_name">Name*</label><br>
         <input id="customer_name" name="customer_name" type="text" required

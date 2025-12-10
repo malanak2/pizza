@@ -9,6 +9,7 @@ namespace Enums {
         case Nachos;
         case Bricks;
         case ElectricBlastFurnace;
+        case BBQGrill;
         public static function fromName(string $name): Base
         {
             foreach (self::cases() as $status) {
@@ -38,6 +39,8 @@ namespace Enums {
         case WarCrimesFromSyria;
         case LiquidHateForMicrosoftTeams;
         case None;
+        case 🗿;
+
         public static function fromName(string $name): Topping
         {
             foreach (self::cases() as $status) {
